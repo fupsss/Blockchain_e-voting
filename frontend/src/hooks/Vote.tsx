@@ -15,8 +15,8 @@ export const SubmitVote = () => {
     const { abi } = electionabi
     const election_deployed_address = networkMapping["4"]["Election"][0]
     const electioninterface = new utils.Interface(abi)
-    const electioncontract= new Contract(election_deployed_address, electioninterface, provider)
-     
+    const electioncontract = new Contract(election_deployed_address, electioninterface, provider)
+
     const { send: send_vote, state: send_vote_state } =
         useContractFunction(electioncontract, "Vote",
             { transactionName: "approved_vote" })

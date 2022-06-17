@@ -15,8 +15,11 @@ contract Election {
     mapping(uint256 => Candidate) public Candidates;
     //count candidates
     uint256 public Candidate_count;
+    // Returning Officer in real life
+    address public admin;
 
     constructor() {
+        admin = msg.sender;
         addCandidate("Devadas Aggarwal", "Bharatiya Janata Party");
         addCandidate("Pallav Pandit", "Indian National Congress");
         addCandidate("Harish Khurana", "Nationalist Congress Party");
@@ -48,6 +51,7 @@ contract Election {
 
     //for frontend
     function viewvotes() public view returns (uint256[] memory) {
+        require(msg.sender == admin);
         uint256[] memory ret = new uint256[](6);
         for (uint256 i = 0; i <= 5; i++) {
             ret[i] = Candidates[i + 1].vote_count;

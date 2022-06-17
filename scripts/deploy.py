@@ -15,6 +15,7 @@ def deploy_election(front_end_update=False):
 def update_front_end():
     # Send the build folder
     copy_folders_to_front_end("./build", "./frontend/src/chain-info")
+    copy_folders_to_front_end("./build","../Admin/admin_privilege/src/chain-info")
     # Sending the front end our config in JSON format
     with open("brownie-config.yaml", "r") as brownie_config:
         config_dict = yaml.load(brownie_config, Loader=yaml.FullLoader)
