@@ -1,5 +1,5 @@
 import { useContractFunction } from "@usedapp/core"
-import { Contract } from "@ethersproject/contracts"
+import { Contract } from "@usedapp/core/node_modules/@ethersproject/contracts"
 import { utils, ethers } from "ethers"
 import { InfuraProvider } from "@ethersproject/providers"
 import electionabi from "../chain-info/contracts/Election.json"
